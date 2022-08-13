@@ -127,7 +127,7 @@ function App() {
                 isRequired={true}
                 initValue={numRows}
                 onChange={(e) => {
-                  setNumRows(e.target.value);
+                  setNumRows(Number(e.target.value));
                 }}
               />
               <NumberInput
@@ -136,7 +136,7 @@ function App() {
                 isRequired={true}
                 initValue={numCols}
                 onChange={(e) => {
-                  setNumCols(e.target.value);
+                  setNumCols(Number(e.target.value));
                 }}
               />
               <NumberInput
@@ -145,7 +145,7 @@ function App() {
                 isRequired={true}
                 initValue={curGroupId}
                 onChange={(e) => {
-                  setCurGroupId(e.target.value);
+                  setCurGroupId(Number(e.target.value));
                 }}
               />
             </div>
