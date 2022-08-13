@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ReactDragAndSelectTableGridsDemo/static/css/main.2d2936d7.css",
-    "main.js": "/ReactDragAndSelectTableGridsDemo/static/js/main.af4d8e81.js",
+    "main.js": "/ReactDragAndSelectTableGridsDemo/static/js/main.89f25e6f.js",
     "static/js/787.6e207c37.chunk.js": "/ReactDragAndSelectTableGridsDemo/static/js/787.6e207c37.chunk.js",
     "index.html": "/ReactDragAndSelectTableGridsDemo/index.html",
     "main.2d2936d7.css.map": "/ReactDragAndSelectTableGridsDemo/static/css/main.2d2936d7.css.map",
-    "main.af4d8e81.js.map": "/ReactDragAndSelectTableGridsDemo/static/js/main.af4d8e81.js.map",
+    "main.89f25e6f.js.map": "/ReactDragAndSelectTableGridsDemo/static/js/main.89f25e6f.js.map",
     "787.6e207c37.chunk.js.map": "/ReactDragAndSelectTableGridsDemo/static/js/787.6e207c37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2d2936d7.css",
-    "static/js/main.af4d8e81.js"
+    "static/js/main.89f25e6f.js"
   ]
 }
