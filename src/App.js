@@ -20,11 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Selecto from "react-selecto";
 import Cube from "./components/Cube";
-import { useGridColClass } from "./hooks/cube";
+import { useSelectedCount, useGridColClass } from "./hooks/cube";
 
 function NumberInput({ label, id, isRequired, initValue, onChange }) {
   return (
@@ -51,9 +51,10 @@ function NumberInput({ label, id, isRequired, initValue, onChange }) {
 function App() {
   const dispatch = useDispatch();
   const [numRows, setNumRows] = useState(4);
-  const [numCols, setNumCols] = useState(8);
+  const [numCols, setNumCols] = useState(4);
   const [curGroupId, setCurGroupId] = useState(1);
   const gridColClass = useGridColClass(numCols);
+  const selectedCount = useSelectedCount();
 
   const cubeIds = [];
   for (let i = 0; i < numRows; ++i) {
@@ -63,6 +64,17 @@ function App() {
     }
     cubeIds.push(row);
   }
+
+  useEffect(() => {
+    if (selectedCount == 0) {
+      setCurGroupId(1);
+      return;
+    }
+    const timer = setTimeout(() => {
+      setCurGroupId(curGroupId + 1);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [selectedCount]);
 
   return (
     <div className="app">
@@ -77,7 +89,7 @@ function App() {
         <Selecto
           dragContainer={".elements"}
           selectableTargets={[".selecto-area .cube"]}
-          hitRate={5}
+          hitRate={1}
           selectByClick={true}
           continueSelect={true}
           selectFromInside={true}
@@ -99,7 +111,10 @@ function App() {
           }}
         />
         <div className="my-5">
-          <div>
+          <p className="my-5 block mb-2 text-sm font-medium text-red-500">
+            Selected {selectedCount} tiles
+          </p>
+          <div className="pt-5 max-w-lg mx-auto">
             <div class="grid gap-6 mb-6 grid-cols-3">
               <NumberInput
                 label="Number of Rows"

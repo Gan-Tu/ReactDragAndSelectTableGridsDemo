@@ -1,6 +1,10 @@
 // Return the user id of a given username, or error if any.
 import { useSelector } from "react-redux";
 
+function useSelectedCount() {
+  return useSelector((store) => store.CubeReducer.cubeIdToGroup.size);
+}
+
 function useGroupId(cubeId) {
   return useSelector((store) => store.CubeReducer.cubeIdToGroup.get(cubeId));
 }
@@ -47,12 +51,10 @@ function useColorClass(groupId) {
     case 5:
       return "bg-indigo-400";
     case 6:
-      return "bg-sky-400";
+      return "bg-sky-300";
     case 7:
-      return "bg-cyan-400";
-    default:
-      return "bg-orange-400";
+      return "bg-yellow-200";
   }
 }
 
-export { useGroupId, useGridColClass, useColorClass };
+export { useSelectedCount, useGroupId, useGridColClass, useColorClass };

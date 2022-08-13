@@ -34,7 +34,7 @@ function Cube({ id }) {
       }`}
       id={id}
     >
-      {selected ? groupId : "slot"}
+      {selected ? `Block ${groupId}` : "Slot"}
     </div>
   );
 }
