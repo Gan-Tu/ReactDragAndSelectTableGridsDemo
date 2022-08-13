@@ -20,15 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import { useGroupId } from "../hooks/cube";
+import { useGroupId, useColorClass } from "../hooks/cube";
 
 function Cube({ id }) {
   const groupId = useGroupId(id);
+  const colorClass = useColorClass(groupId);
+
   const selected = !!groupId;
   return (
     <div
       className={`w-full cube text-center m-2 p-4 grow ${
-        selected ? "selected" : null
+        selected ? colorClass : "bg-[#eee]"
       }`}
       id={id}
     >

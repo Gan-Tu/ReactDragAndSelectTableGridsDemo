@@ -32,4 +32,27 @@ function useGridColClass(numCols) {
   }
 }
 
-export { useGroupId, useGridColClass };
+function useColorClass(groupId) {
+  switch (groupId % 8) {
+    case 0:
+      return "bg-rose-400";
+    case 1:
+      return "bg-[#4af]";
+    case 2:
+      return "bg-emerald-400";
+    case 3:
+      return "bg-red-400";
+    case 4:
+      return "bg-lime-400";
+    case 5:
+      return "bg-indigo-400";
+    case 6:
+      return "bg-sky-400";
+    case 7:
+      return "bg-cyan-400";
+    default:
+      return "bg-orange-400";
+  }
+}
+
+export { useGroupId, useGridColClass, useColorClass };

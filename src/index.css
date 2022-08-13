@@ -73,7 +73,7 @@ body {
 .cube {
   /* width: 40px; */
   /* height: 60px; */
-  background: #eee;
+  /* background: #eee; */
   border-radius: 5px;
 }
 
@@ -122,7 +122,7 @@ h1,
 
 .selecto-area .selected {
   color: #fff;
-  background: #4af;
+  /* background: #4af; */
 }
 
 .scroll {

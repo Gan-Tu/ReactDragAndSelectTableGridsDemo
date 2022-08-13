@@ -26,10 +26,32 @@ import Selecto from "react-selecto";
 import Cube from "./components/Cube";
 import { useGridColClass } from "./hooks/cube";
 
+function NumberInput({ label, id, isRequired, initValue, onChange }) {
+  return (
+    <div>
+      <label
+        for={id}
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+      >
+        {label}
+      </label>
+      <input
+        type="number"
+        id={id}
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder={initValue}
+        value={initValue}
+        required={isRequired}
+        onChange={onChange}
+      />
+    </div>
+  );
+}
+
 function App() {
   const dispatch = useDispatch();
   const [numRows, setNumRows] = useState(4);
-  const [numCols, setNumCols] = useState(4);
+  const [numCols, setNumCols] = useState(8);
   const [curGroupId, setCurGroupId] = useState(1);
   const gridColClass = useGridColClass(numCols);
 
@@ -57,7 +79,7 @@ function App() {
           selectableTargets={[".selecto-area .cube"]}
           hitRate={5}
           selectByClick={true}
-          continueSelect={false}
+          continueSelect={true}
           selectFromInside={true}
           onSelect={(e) => {
             e.added.forEach((el) => {
@@ -76,6 +98,39 @@ function App() {
             });
           }}
         />
+        <div className="my-5">
+          <div>
+            <div class="grid gap-6 mb-6 grid-cols-3">
+              <NumberInput
+                label="Number of Rows"
+                id="numRows"
+                isRequired={true}
+                initValue={numRows}
+                onChange={(e) => {
+                  setNumRows(e.target.value);
+                }}
+              />
+              <NumberInput
+                label="Number of Cols"
+                id="numCols"
+                isRequired={true}
+                initValue={numCols}
+                onChange={(e) => {
+                  setNumCols(e.target.value);
+                }}
+              />
+              <NumberInput
+                label="Group Number"
+                id="groupId"
+                isRequired={true}
+                initValue={curGroupId}
+                onChange={(e) => {
+                  setCurGroupId(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+        </div>
         <div className="elements selecto-area" id="selecto1">
           {cubeIds.map((row, rowIndex) => {
             return (
