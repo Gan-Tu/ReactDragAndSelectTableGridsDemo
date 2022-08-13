@@ -68,15 +68,15 @@ function App() {
   useEffect(() => {
     dispatch({ type: "RESET_GROUPS" });
     setCurGroupId(1);
-  }, [numRows, numCols]);
+  }, [dispatch, numRows, numCols]);
 
   useEffect(() => {
-    if (selectedCount == 0) {
+    if (selectedCount === 0) {
       setCurGroupId(1);
       return;
     }
     const timer = setTimeout(() => {
-      setCurGroupId(curGroupId + 1);
+      setCurGroupId((c) => c + 1);
     }, 1000);
     return () => clearTimeout(timer);
   }, [selectedCount]);
@@ -90,7 +90,7 @@ function App() {
             src="https://daybrush.com/selecto/images/256x256.png"
           />
         </div>
-        <h1 className="pt-2">Drag to Draw ViSE Layouts</h1>
+        <h1 className="pt-2">Drag to Draw Grid Layouts</h1>
         <Selecto
           dragContainer={".elements"}
           selectableTargets={[".selecto-area .cube"]}

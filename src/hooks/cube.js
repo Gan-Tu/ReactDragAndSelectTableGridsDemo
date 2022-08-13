@@ -50,7 +50,7 @@ function useColorClass(groupId) {
       return "bg-indigo-400";
     case 6:
       return "bg-sky-300";
-    case 7:
+    default:
       return "bg-yellow-200";
   }
 }
