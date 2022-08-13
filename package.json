@@ -1,6 +1,7 @@
 {
   "name": "react-drag-and-drog-select-demo",
   "version": "0.1.0",
+  "homepage": "https://gan-tu.github.io/ReactDragAndSelectTableGridsDemo",
   "private": true,
   "dependencies": {
     "@mantine/core": "^3.6.7",
