@@ -14,6 +14,9 @@ export default function reducer(state = initialState, action) {
       newCubeIdToGroup.delete(action.cubeId);
       return { ...state, cubeIdToGroup: newCubeIdToGroup };
     }
+    case "RESET_GROUPS": {
+      return { ...state, cubeIdToGroup: new Map() };
+    }
     default:
       return { ...state };
   }

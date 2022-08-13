@@ -10,7 +10,7 @@ function useGroupId(cubeId) {
 }
 
 function useGridColClass(numCols) {
-  switch (numCols) {
+  switch (numCols % 11) {
     case 1:
       return "grid-cols-1";
     case 2:
@@ -29,10 +29,8 @@ function useGridColClass(numCols) {
       return "grid-cols-8";
     case 9:
       return "grid-cols-9";
-    case 10:
-      return "grid-cols-10";
     default:
-      return "";
+      return "grid-cols-10";
   }
 }
 

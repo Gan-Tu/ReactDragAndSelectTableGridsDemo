@@ -66,6 +66,11 @@ function App() {
   }
 
   useEffect(() => {
+    dispatch({ type: "RESET_GROUPS" });
+    setCurGroupId(1);
+  }, [numRows, numCols]);
+
+  useEffect(() => {
     if (selectedCount == 0) {
       setCurGroupId(1);
       return;
